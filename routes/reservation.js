@@ -66,17 +66,7 @@ app.post("/booking", async (req, res) => {
             var endTime = bookingTime + reservedDuration;
             console.log(bookedSeats);
             var seatsAvailable = 100 - parseInt(bookedSeats);
-            console.log(seatsAvailable);
             if (seatsAvailable > 0 && seatsAvailable >= seats) {
-                var duration = req.body.duration;
-                var name = req.body.customer_name;
-                var email = req.body.customer_email;
-                var date = req.body.date;
-                var bookingTime = bookingDate.getTime();
-                var timezone = bookingDate.getTimezoneOffset();
-                var reservedDuration = duration * 60 * 60 * 1000;
-                var endTime = bookingTime + reservedDuration;
-                console.log(endTime + "ffoo");
                 const reservation_save = new reservation({
                     number_of_guest: seats,
                     duration: reservedDuration,
